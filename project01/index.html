@@ -2,6 +2,15 @@
 <html>
 <head>
 <LINK REL=StyleSheet HREF="style.css" TYPE="text/css">
+<title>Life Figure-Outer Application</title>
+<script type="text/javascript">
+	function validate(){
+		var str = document.getElementById('feeling').value;
+		if(!str){
+			alert('Surely you feel something!');
+		}
+	}
+</script>
 </head>
 <body>
 <div class="container">
@@ -11,7 +20,13 @@
 	</div>
 	<div class="menubar">
 		<ul>
-			<li><a href="">Home</a></li> <li>Interests</li> <li>Health</li> <li>Academic</li> <li>Professional</li> <li>Fun</li> <li>Evil</li>
+			<li><a href="#" title="~">Home</a> </li>
+			<li> <a href="#" title="Interesting"> Interests </a></li> 
+			<li> <a href="#" title="An apple a day"> Health </a></li> 
+			<li> <a href="#" title="school"> Academic </a></li>
+			<li> <a href="#" title="Suit and tie"> Professional </a></li>
+			<li> <a href="#" title="Coding"> Fun </a></li>
+			<li> <a href="#" title="Secret Lab"> Evil </a></li>
 		</ul>
 	</div>
 	<div class="content">
@@ -22,7 +37,7 @@
 		<h2>Lorem Ipsum Dolor Sit Amet.</h2>
 		<div id="question1">
 			<div class="question"><p>How do you feel today? </p></div>
-			<div class="input"><input type="text" name="feeling" /></div>
+			<div class="input"><input type="text" name="feeling" id="feeling" /></div>
 		</div>
 		<div id="question2">
 			<div class="question">
@@ -30,13 +45,13 @@
 			</div>
 			<div class="input">
 				<select multiple="multiple">
-	  				<option value="Comfortably numb.">Comfortably numb</option>
-	  				<option value="saab">Grumpy as poop, you jerk</option>
-	  				<option value="mercedes">Happy like I'm on controlled substances</option>
-	  				<option value="audi">Normal. Absolutely Normal.</option>
+	  				<option value="numb">Comfortably numb</option>
+	  				<option value="grumpy">Grumpy as poop, you jerk</option>
+	  				<option value="happy">Happy like I'm on controlled substances</option>
+	  				<option value="normal">Normal. Absolutely Normal.</option>
 				</select>
 				<br>
-				<input type="button" value="Feel me!">
+				<input type="button" value="Feel me!" onclick="validate()" >
 			</div>
 		</div>
 	</div>
