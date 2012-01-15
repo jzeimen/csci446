@@ -1,14 +1,12 @@
 /*
-Background: #AAAAAA
-Title background :#CCCCCC
-Content background: #FCFCFC
-Progress box: #F0EFFF
+In order from top to bottom as it is probably displayed on the page
 */
 
 *,html{
 	margin: 0;
 	padding: 0;
 }
+
 body{
 	background: #AAA;
 	/*Pretty sure Yong's site is using Helvetica*/
@@ -29,53 +27,37 @@ body{
 	margin:0;
 	background:#CCC;
 	padding-left:10px;
-	padding-top:4px;
+	padding-top:8px;
 	padding:bottom:0px;
-	height:66px;
+	height:60px;
 }
 
 .header h1{
 	margin: 0px;
-	padding-top: 3px;
+	padding-top: 0px;
 	padding-bottom: 0px;
-	letter-spacing:-1.6px;
+	letter-spacing:-1.4px;
 }
 
 .header p {
-	color:#666;
+	color:#888;
 	font-size:12.7px;
 	
 }
 
-.content {
-	background: #FCFCFC;
-	margin: 0px 0px;
-	position: relative;
-}
-
-
 .menubar {
 	background:#000;
-	padding-top:.5em;
-	padding-bottom:.5em;
+	padding-top:9px;
+	padding-bottom:10px;
+	padding-left:10px;
 	margin:0;
+	letter-spacing:-0.5px;
 
 }
-
-
-
-.responsebox{
-	background:#F0EFff;
-	position: absolute;
-	margin:0;
- 	margin: 0px 0px;
- 	right: 5px;
-	top: 5px;
-}
-
-ul{
+ul, ul a{
 	list-style-type:none;
 	color:#fff;
+	text-decoration:none;
 	/*So that it alligns to the left*/
 	list-style-position:outside;
 	margin:0;
@@ -83,17 +65,77 @@ ul{
 }
 
 li{
-	font-size:1.1em;
-
+	font-size:17px;
+	
 	/*Instead of an up and down list*/
 	display: inline;
-
+	padding-right:30px;
 	/*Spacing betweeen words*/
-	padding-left:1em;
+
 	margin:0;
 
 }
 
-.input, .input p, .input input, .question, .question p {
-	display: inline-block;
+.content {
+	background: #FCFCFC;
+	margin: 0px 0px;
+	position: relative;
+	padding-top:10px;
+	padding-left:10px;
+	height:207px;
+
+}
+
+
+.responsebox{
+	background:#F0EFff;
+	position: absolute;
+	padding-left:6px;
+	padding-top:6px;
+	max-width:340px;
+	min-width:340px;
+	min-height:79px;
+	max-width:79px;
+	margin:0;
+ 	right: 10px;
+	top: 10px;
+}
+
+#response {
+	padding-top:17px;
+}
+
+
+.input, .question{
+	/*display: inline-block;*/
+	float:left;
+}
+
+
+.question {
+	width:200px;
+
+	margin-bottom:20px;
+}
+#question2{
+	clear:both;
+}
+
+#question2 select{
+	margin-bottom:22px;
+}
+.footer{
+	background-color:#F0F0F0;
+	height:33px;
+	text-align:center;
+	vertical-align:middle;
+}
+
+.footer p{
+	padding-top:10px;
+	font-size:12.7px;
+}
+
+.content h2 {
+	padding-bottom:19px;
 }
