@@ -1,4 +1,99 @@
-.menubar p
-{ 
-word-spacing:30px;
+/*
+Background: #AAAAAA
+Title background :#CCCCCC
+Content background: #FCFCFC
+Progress box: #F0EFFF
+*/
+
+*,html{
+	margin: 0;
+	padding: 0;
+}
+body{
+	background: #AAA;
+	/*Pretty sure Yong's site is using Helvetica*/
+	font-family:  Helvetica, Arial sans-serif;
+	margin: 0;
+	padding:0;
+
+}
+
+.container {
+	margin: 0 auto;
+	max-width:960px;
+	border: 1px solid #000;
+}
+
+
+.header{
+	margin:0;
+	background:#CCC;
+	padding-left:10px;
+	padding-top:4px;
+	padding:bottom:0px;
+	height:66px;
+}
+
+.header h1{
+	margin: 0px;
+	padding-top: 3px;
+	padding-bottom: 0px;
+	letter-spacing:-1.6px;
+}
+
+.header p {
+	color:#666;
+	font-size:12.7px;
+	
+}
+
+.content {
+	background: #FCFCFC;
+	margin: 0px 0px;
+	position: relative;
+}
+
+
+.menubar {
+	background:#000;
+	padding-top:.5em;
+	padding-bottom:.5em;
+	margin:0;
+
+}
+
+
+
+.responsebox{
+	background:#F0EFff;
+	position: absolute;
+	margin:0;
+ 	margin: 0px 0px;
+ 	right: 5px;
+	top: 5px;
+}
+
+ul{
+	list-style-type:none;
+	color:#fff;
+	/*So that it alligns to the left*/
+	list-style-position:outside;
+	margin:0;
+	padding:0;
+}
+
+li{
+	font-size:1.1em;
+
+	/*Instead of an up and down list*/
+	display: inline;
+
+	/*Spacing betweeen words*/
+	padding-left:1em;
+	margin:0;
+
+}
+
+.input, .input p, .input input, .question, .question p {
+	display: inline-block;
 }
