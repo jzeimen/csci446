@@ -1,19 +1,30 @@
-Level 2
+Level 5
 
-It is too dark to see anything, but you smell sludge nearby.
+You hear cries for help. Captives must need rescuing.
 
-Tip: Use warrior.feel.empty? to see if there's anything in front of you, and warrior.attack! to fight it. Remember, you can only do one action (ending in !) per turn.
+Tip: Use warrior.feel.captive? to see if there's a captive, and warrior.rescue! to rescue him. Don't attack captives.
 
- --------
-|@   s  >|
- --------
+ -------
+|@ CaaSC|
+ -------
 
   > = Stairs
   @ = Joe (20 HP)
-  s = Sludge (12 HP)
+  C = Captive (1 HP)
+  a = Archer (7 HP)
+  S = Thick Sludge (24 HP)
 
 
 Warrior Abilities:
+
+  warrior.rescue!
+    Rescue a captive from his chains (earning 20 points) in given direction (forward by default).
+
+  warrior.health
+    Returns an integer representing your health.
+
+  warrior.rest!
+    Gain 10% of max health back, but do nothing more.
 
   warrior.feel
     Returns a Space for the given direction (forward by default).
