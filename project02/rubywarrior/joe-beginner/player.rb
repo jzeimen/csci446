@@ -1,7 +1,7 @@
 class Player
 	def initialize
 		@health = 0
-		@hitwall = false
+		@hitwall = true
 	end
   def play_turn(warrior)
   	puts warrior.feel
@@ -39,6 +39,8 @@ class Player
 			return
 		end
 		warrior.attack!
+	elsif(warrior.feel.wall?)
+		warrior.pivot!(:backward)
 	end
   end
 end
