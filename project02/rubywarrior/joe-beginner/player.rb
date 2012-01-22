@@ -3,6 +3,7 @@ class Player
 		@health = 0
 	end
   def play_turn(warrior)
+
   	@damagetaken = (warrior.health < @health)
   	@health = warrior.health
   	if(warrior.feel.empty?) 
@@ -12,7 +13,9 @@ class Player
   			warrior.rest! if warrior.health < 20
 	  		warrior.walk! if warrior.health == 20
 	 	end
-	else 
+	elsif(warrior.feel.captive?)
+		warrior.rescue!
+	else
 		warrior.attack!
 	end
   end
