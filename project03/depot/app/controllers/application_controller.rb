@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-
+  before_filter :authorize
   private
 
   def current_cart
@@ -11,5 +11,11 @@ class ApplicationController < ActionController::Base
   	cart
   end
 
+  protected
+  	def authorize
+  		unless User.find_by_id(session[:user_id])
+  			redirect_to login_url, notice: "please log in"
+  		end
+  	end
 
 end
