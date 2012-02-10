@@ -15,7 +15,7 @@
 <% @articles.each do |article| %>
   <tr>
     <td><%= article.title %></td>
-    <td><%= article.body %></td>
+    <td><%= truncate(strip_tags(article.body), length: 80) %>
     <td><%= article.author %></td>
     <td><%= article.edits %></td>
     <td><%= link_to 'Show', article %></td>
@@ -26,5 +26,8 @@
 </table>
 
 <br />
-
+<p>
+  <%=  pluralize(@articles.length, "article")+"." %>
+</p>
+<br />
 <%= link_to 'New Article', new_article_path %>
