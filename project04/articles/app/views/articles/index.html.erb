@@ -1,13 +1,18 @@
-<h1>Articl.es</h1>
-<p>With a name .com hipsters love.</p>
 
+<% content_for :subtitle do %>
+  <%= "... with a name .com hipsters love!" %>
+<% end %>
+
+
+<p id="notice"><%= notice %></p>
+
+<%= link_to image_tag('add.png')+'New Article', new_article_path, title: "Create your own fantastic article!" %>
 <table>
   <tr>
     <th>Title</th>
     <th>Body</th>
     <th>Author</th>
-    <th>Edits</th>
-    <th></th>
+    <th>Creation Date</th>
     <th></th>
     <th></th>
   </tr>
@@ -15,9 +20,9 @@
 <% @articles.each do |article| %>
   <tr>
     <td><%= article.title %></td>
-    <td><%= truncate(strip_tags(article.body), length: 80) %>
+    <td><%= truncate(strip_tags(article.body), length: 40) %>
     <td><%= article.author %></td>
-    <td><%= article.edits %></td>
+    <td><%= article.created_at.to_s(:creation_format) %></td>
     <td><%= link_to image_tag('view.png'), article, title: "View #{article.title}" %></td>
     <td><%= link_to image_tag('edit.png'), edit_article_path(article), title: "Edit #{article.title}" %></td>
     <td><%= link_to image_tag('delete.png'), article, confirm: 'Are you sure?', method: :delete, title: "Delete #{article.title}" %></td>
@@ -29,5 +34,4 @@
 <p>
   <%=  pluralize(@articles.length, "article")+"." %>
 </p>
-<br />
-<%= link_to 'New Article', new_article_path %>
+
