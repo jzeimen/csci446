@@ -34,9 +34,24 @@ class ArticlesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should update article" do
+  test "should increment edits" do 
+    before_edit = @article.edits
     put :update, id: @article, article: @article.attributes
-    assert_redirected_to article_path(assigns(:article))
+    @article.save
+    assert_equal before_edit+1, @article.edits
+  end
+
+  test "should update article from index page" do
+    put(:update, {id: @article, article: @article.attributes}, {previous_page: articles_path})
+    assert_redirected_to articles_path
+
+  end
+
+
+  test "should update article from article page" do 
+    put(:update, {id: @article, article: @article.attributes}, {last_article_page: article_path(@article)})
+    assert_redirected_to article_path(@article)
+
   end
 
   test "should destroy article" do

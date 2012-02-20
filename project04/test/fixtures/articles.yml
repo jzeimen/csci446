@@ -4,10 +4,18 @@ one:
   title: MyString
   body: MyText
   author: MyString
-  edits: 1
+  edits: 0
 
 two:
   title: MyString
   body: MyText
   author: MyString
-  edits: 1
+  edits: 0
+
+
+
+pat:
+  title: MyString
+  body: MyText
+  author: Pat
+  edits: 0

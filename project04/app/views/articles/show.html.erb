@@ -11,6 +11,7 @@
 
 <%= mail_to '', image_tag('email.png')+"Email" , subject: @article.title, body: article_url(@article), title: "Send to a friend" %> |
 <%=link_to image_tag('delete.png')+'Delete', @article, confirm: 'Are you sure?', method: :delete, title: "Delete #{@article.title}" %>
+<h2><%= @article.title %></h2>
 <p> by <%= @article.author + ". " + pluralize(@article.edits,"edits")+" since "+@article.created_at.to_s(:month_day_year)+"." %>
 
 
