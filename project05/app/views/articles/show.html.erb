@@ -1,16 +1,15 @@
 <% content_for :subtitle do %>
-  <%= "... what's an \"Articl\" in Spanish anyway?" %>
+... what's an "Articl" in Spanish anyway?
 <% end %>
 
 <p id="notice"><%= notice %></p>
 
-
-<%= link_to image_tag('back.png')+'Back', articles_path, title: "Go back to list of articles" %> |
-<%= link_to image_tag('view.png')+'Edit', edit_article_path(@article), title: "Edit this article" %> |
-
-
-<%= mail_to '', image_tag('email.png')+"Email" , subject: @article.title, body: article_url(@article), title: "Send to a friend" %> |
-<%=link_to image_tag('delete.png')+'Delete', @article, confirm: 'Are you sure?', method: :delete, title: "Delete #{@article.title}" %>
+<ul class="menu">
+	<li><%= link_to image_tag('back.png')+'Back', articles_path, title: "Go back to list of articles" %> </li>
+	<li> <%= link_to image_tag('view.png')+'Edit', edit_article_path(@article), title: "Edit this article" %> </li>
+	<li><%= mail_to '', image_tag('email.png')+"Email" , subject: @article.title, body: article_url(@article), title: "Send to a friend" %> </li>
+	<li><%=link_to image_tag('delete.png')+'Delete', @article, confirm: 'Are you sure?', method: :delete, title: "Delete #{@article.title}" %> </li>
+</ul>
 <h2><%= @article.title %></h2>
 <p> by <%= @article.author + ". " + pluralize(@article.edits,"edits")+" since "+@article.created_at.to_s(:month_day_year)+"." %>
 

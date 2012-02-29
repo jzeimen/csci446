@@ -1,3 +1,31 @@
 // Place all the styles related to the Articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+tr.list_line_even {
+  background:   #999;
+}
+
+table#articles_list{
+	border-collapse: collapse;
+}
+
+
+table#articles_list tbody{
+	
+	height: 400px;
+	overflow: scroll;
+}
+
+ul.menu, ul.menu a{
+	list-style-type:none;
+	text-decoration:none;
+	/*So that it alligns to the left*/
+	list-style-position:outside;
+	margin:0;
+	padding:0;
+}
+
+.menu li {
+	display: inline;
+	padding-right:30px;
+}

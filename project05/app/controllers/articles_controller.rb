@@ -1,6 +1,9 @@
 class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
+
+  before_filter :set_last_page,  only: [:edit]
+
   def index
     @articles = Article.all
 
@@ -35,7 +38,7 @@ class ArticlesController < ApplicationController
   # GET /articles/1/edit
   def edit
     @article = Article.find(params[:id])
-    session[:last_article_page] = request.env["HTTP_REFERER"] || articles_url
+    
   end
 
   # POST /articles
@@ -80,5 +83,10 @@ class ArticlesController < ApplicationController
       format.html { redirect_to articles_url }
       format.json { head :no_content }
     end
+  end
+
+
+  def set_last_page
+    session[:last_article_page] = request.env["HTTP_REFERER"] || articles_url
   end
 end
