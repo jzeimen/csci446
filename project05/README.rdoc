@@ -12,3 +12,5 @@ TODO For this project:
 
 	add paperclipped images to Author
 	paginate, 10articles/page
+
+	Make menubar/style to look pretty 
