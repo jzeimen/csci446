@@ -7,8 +7,8 @@ TODO For this project:
 	Convert erb ==> Haml											Done
 	Convert css ==> SASS or SCSS									Done
 	
-	Create Author Table, id, name, Author has many articles
-	remove author name from articles, replace with author_id
+	Create Author Table, id, name, Author has many articles		    Done
+	remove author name from articles, replace with author_id        Done
 
 	add paperclipped images to Author
 	paginate, 10articles/page
