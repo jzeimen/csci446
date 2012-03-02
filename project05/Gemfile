@@ -20,8 +20,12 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+
+gem "erb2haml", :group => :development
+
 gem 'jquery-rails'
-#gem 'therubyracer'
+gem 'haml'
+#gem 'therubyracer'  #For jruby
 gem 'therubyrhino'
 gem 'paperclip'
 gem 'will_paginate'

@@ -1,0 +1,6 @@
+- content_for :subtitle do
+  my cousin works for Bit.ly
+= link_to image_tag('back.png')+'Back', session[:last_article_page]
+%h3
+  Editing "#{@article.title}"
+= render 'form'

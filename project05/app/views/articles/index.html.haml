@@ -1,0 +1,29 @@
+- content_for :subtitle do
+  \... with a name .com hipsters love!
+%p#notice= notice
+%h3 All the World's Articles
+= link_to image_tag('add.png')+'New Article', new_article_path, title: "Create your own fantastic article!"
+%table#articles_list
+  %thead
+    %tr
+      %th Title
+      %th Body
+      %th Author
+      %th Creation Date
+      %th
+      %th
+      %th
+  %tfoot
+    %tr
+      %td{:colspan => "7"}
+        = pluralize(@articles.length, "article")+"."
+  %tbody
+    - @articles.each do |article|
+      %tr{:class => cycle('list_line_odd', 'list_line_even')}
+        %td= h article.title
+        %td= h truncate(strip_tags(article.body), length: 40)
+        %td= article.author
+        %td= article.created_at.to_s(:creation_format)
+        %td= link_to image_tag('view.png'), article, title: "View #{article.title}"
+        %td= link_to image_tag('edit.png'), edit_article_path(article), title: "Edit #{article.title}"
+        %td= link_to image_tag('delete.png'), article, confirm: 'Are you sure?', method: :delete, title: "Delete #{article.title}"

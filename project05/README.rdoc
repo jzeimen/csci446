@@ -1,3 +1,14 @@
 == Articl.es Part 2 (Project 5)
 
 This is the second iteration of the articl.es project for Web Application Development at Colorado School of Mines. 
+
+
+TODO For this project:
+	Convert erb ==> Haml											Done
+	Convert css ==> SASS or SCSS									Done
+	
+	Create Author Table, id, name, Author has many articles
+	remove author name from articles, replace with author_id
+
+	add paperclipped images to Author
+	paginate, 10articles/page
