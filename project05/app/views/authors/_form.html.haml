@@ -1,4 +1,4 @@
-= form_for(@author) do |f|
+= form_for(@author, html: {multipart:true}) do |f|
   - if @author.errors.any?
     #error_explanation
       %h2
@@ -11,5 +11,7 @@
     = f.label :name
     %br/
     = f.text_field :name
+  .field
+    =f.file_field :photo
   .actions
     = f.submit
