@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
   before_filter :set_last_page,  only: [:edit]
 
   def index
-    @articles = Article.paginate per_page: 10, page: params[:page]
+    @articles = Article.paginate per_page: 10, page: params[:page], include: [:author]
     @article_count = Article.all.count
     respond_to do |format|
       format.html # index.html.erb

@@ -9,4 +9,7 @@
     %h1 Articl.es
     %h2
       = yield :subtitle
+    %ul#menubar
+      %li= link_to 'Articles', root_path
+      %li= link_to 'Authors', authors_path
     = yield
