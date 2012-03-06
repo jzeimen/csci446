@@ -6,5 +6,5 @@ class Author < ActiveRecord::Base
 		errors.add(:name, "Author's name cannot include Pat") if name.downcase.include?("pat")
 	end
 	
-	has_attached_file :photo, styles: {small: "150x150>"}
+	has_attached_file :photo, styles: {small: "150x150>", med: "300x300>"}
 end

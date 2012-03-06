@@ -14,3 +14,4 @@ TODO For this project:
 	paginate, 10articles/page
 
 	Make menubar/style to look pretty 
+	when viewing author, display picture, and list of articles

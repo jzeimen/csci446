@@ -1,9 +1,15 @@
 %p#notice= notice
 %p
-  %b Name:
-  = @author.name
-=(link_to image_tag( @author.photo.url(:small)), @author.photo.url)
+	%b Name:
+	= @author.name
+=(link_to image_tag( @author.photo.url(:med)), @author.photo.url) if @author.photo?
 %br/
+
+%b Articles:
+%br/
+-@author.articles.each do |a|
+	=link_to a.title, article_path(a)
+	%br/
 = link_to 'Edit', edit_author_path(@author)
 |
 \#{link_to 'Back', authors_path}
