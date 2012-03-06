@@ -10,8 +10,8 @@ TODO For this project:
 	Create Author Table, id, name, Author has many articles		    Done
 	remove author name from articles, replace with author_id        Done
 
-	add paperclipped images to Author
-	paginate, 10articles/page
+	add paperclipped images to author 								Done
+	paginate, 10articles/page 										Done
 
-	Make menubar/style to look pretty 
-	when viewing author, display picture, and list of articles
+	Make menubar			 										
+	when viewing author, display picture, and list of articles      Done

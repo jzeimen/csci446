@@ -5,7 +5,8 @@ class ArticlesController < ApplicationController
   before_filter :set_last_page,  only: [:edit]
 
   def index
-    @articles = Article.all
+    @articles = Article.paginate per_page: 10, page: params[:page]
+    @article_count = Article.all.count
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @articles }
