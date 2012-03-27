@@ -6,7 +6,14 @@ gem 'rails', '3.2.2'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-
+gem 'haml'
+gem 'haml-rails'
+gem 'authlogic'
+gem 'will_paginate'
+gem 'paperclip'
+gem "recaptcha", :require => "recaptcha/rails"
+gem 'declarative_authorization'
+gem 'erb2haml'
 
 # Gems used only for assets and not required
 # in production environments by default.

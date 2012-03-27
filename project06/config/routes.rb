@@ -1,4 +1,17 @@
-Gamez::Application.routes.draw do
+Gamez::Application.routes.draw do 
+  resources :user_sessions
+
+  resources :users
+
+  resources :games
+
+
+  #My Routes
+
+#  map.logout "logout", controller: "user_sessions", action:"destroy"
+  match 'login', :to => 'user_sessions#new'
+  match 'logout', :to => 'user_sessions#destroy'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,7 +61,7 @@ Gamez::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'games#index'
 
   # See how all your routes lay out with "rake routes"
 
