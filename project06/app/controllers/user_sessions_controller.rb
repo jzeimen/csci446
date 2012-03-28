@@ -30,11 +30,11 @@ class UserSessionsController < ApplicationController
   # DELETE /user_sessions/1
   # DELETE /user_sessions/1.json
   def destroy
-    @user_session = UserSession.find(params[:id])
+    @user_session = UserSession.find
     @user_session.destroy
 
     respond_to do |format|
-      format.html { redirect_to root_url, notice: 'You are no longer logged in.' }
+      format.html { redirect_to root_url , notice: 'You are no longer logged in.' }
       format.json { head :no_content }
     end
   end
