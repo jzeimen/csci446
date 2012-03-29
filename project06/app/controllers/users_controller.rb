@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = User.all( order: :last)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -41,9 +41,11 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(params[:user])
-
+    
     respond_to do |format|
-      if @user.save
+
+      #Check the recaptch and short circuit if it fails and add an error.
+      if verify_recaptcha(:model => @user, :message => "Recaptcha failed, try again.") && @user.save
         format.html { redirect_to root_url, notice: 'Registration Successful' }
         format.json { render json: @user, status: :created, location: @user }
       else

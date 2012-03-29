@@ -13,7 +13,7 @@ Gamez::Application.routes.draw do
 #  map.logout "logout", controller: "user_sessions", action:"destroy"
   match 'login', :to => 'user_sessions#new'
   match 'logout', :to => 'user_sessions#destroy'
-
+  match "newuser", :to => 'users#new'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
