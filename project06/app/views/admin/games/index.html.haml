@@ -13,9 +13,9 @@
     %tr
       %td= game.title
       %td= game.rating
-      %td= link_to 'Show', game
+      %td= link_to 'Show', [:admin, game]
       %td= link_to 'Edit', edit_admin_game_path(game)
-      %td= link_to 'Destroy', game, :confirm => 'Are you sure?', :method => :delete
+      %td= link_to 'Destroy', [:admin, game], :confirm => 'Are you sure?', :method => :delete
 
 %br
 
