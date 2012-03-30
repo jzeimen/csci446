@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  
-
+  before_filter { |c| Authorization.current_user = c.current_user}
+  filter_resource_access
   helper_method :current_user
   helper_method :users_full_name
   
@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-  	return @current_user if defined?(@current_user)
+  	return @current_user if defined?(@current_user) && @current_user != nil
   	@current_user = current_user_session && current_user_session.record
   end
 
