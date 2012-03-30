@@ -66,11 +66,14 @@ Gamez::Application.routes.draw do
 
   namespace :admin do
     resources :games
+    resources :roles
+    resources :users
     root to: 'games#index'
   end 
 
   namespace :member do
     resources :games
+    resources :users
     root to: 'games#index'
   end 
 
