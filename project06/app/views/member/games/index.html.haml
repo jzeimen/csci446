@@ -5,17 +5,13 @@
   %tr
     %th Title
     %th Rating
-    %th
-    %th
-    %th
+    %th Created At
 
   - @games.each do |game|
     %tr
-      %td= game.title
+      %td= link_to game.title, [:member, game]
       %td= game.rating
-      %td= link_to 'Show', [:member, game]
-      %td= link_to 'Edit', edit_member_game_path(game)
-      %td= link_to 'Destroy', [:member, game], :confirm => 'Are you sure?', :method => :delete
+      %td= "#{game.created_at.to_s(:month_day_year)} by #{game.user.full_name}"
 
 %br
 

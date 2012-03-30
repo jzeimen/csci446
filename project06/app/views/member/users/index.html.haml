@@ -18,10 +18,8 @@
       %td= user.password
       %td= user.first
       %td= user.last
-      %td= link_to 'Show', user
-      %td= link_to 'Edit', edit_user_path(user)
-      %td= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete
+      %td= link_to 'Show', [:member, user]
+      %td= link_to 'Edit', edit_member_user_path(user)
+      %td= link_to 'Destroy', [:member,user], :confirm => 'Are you sure?', :method => :delete
 
-%br
 
-= link_to 'New User', new_user_path

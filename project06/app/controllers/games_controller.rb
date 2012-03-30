@@ -1,8 +1,10 @@
 class GamesController < ApplicationController
+  filter_resource_access
+
   # GET /games
   # GET /games.json
   def index
-    @games = Game.all
+    @games = Game.all(include: :user)
 
     respond_to do |format|
       format.html # index.html.erb

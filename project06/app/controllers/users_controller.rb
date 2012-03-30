@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  filter_resource_access
+
   # GET /users
   # GET /users.json
   def index
@@ -40,6 +42,7 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
+    params[:role_id] = Role.find_by_name("Member").id
     @user = User.new(params[:user])
     
     respond_to do |format|

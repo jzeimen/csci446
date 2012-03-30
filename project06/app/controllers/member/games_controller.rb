@@ -2,8 +2,7 @@ class Member::GamesController < Member::MemberController
   # GET /games
   # GET /games.json
   def index
-    @games = Game.all
-
+    @games = Game.all(include: :user, order: "created_at DESC")
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @games }
@@ -41,7 +40,7 @@ class Member::GamesController < Member::MemberController
   # POST /games.json
   def create
     @game = Game.new(params[:game])
-
+    @game.user_id = current_user.id
     respond_to do |format|
       if @game.save
         format.html { redirect_to [:member, @game], notice: 'Game was successfully created.' }

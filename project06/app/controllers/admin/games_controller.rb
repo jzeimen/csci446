@@ -2,8 +2,7 @@ class Admin::GamesController < Admin::AdminController
   # GET /games
   # GET /games.json
   def index
-    @games = Game.all
-
+    @games = Game.all(include: :user, order: "created_at DESC")
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @games }
@@ -41,7 +40,7 @@ class Admin::GamesController < Admin::AdminController
   # POST /games.json
   def create
     @game = Game.new(params[:game])
-
+    @game.user_id = params[:user_id]
     respond_to do |format|
       if @game.save
         format.html { redirect_to admin_game_url(@game), notice: 'Game was successfully created.' }
@@ -57,7 +56,7 @@ class Admin::GamesController < Admin::AdminController
   # PUT /games/1.json
   def update
     @game = Game.find(params[:id])
-
+    @game.user_id = params[:user_id]
     respond_to do |format|
       if @game.update_attributes(params[:game])
         format.html { redirect_to admin_game_url(@game), notice: 'Game was successfully updated.' }
