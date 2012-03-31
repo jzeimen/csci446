@@ -8,11 +8,27 @@
 	%body
 		#user_nav
 			- if current_user
-				= link_to users_full_name, edit_user_path([:member, :current])
+				Logged in as 
+
+				-if current_user.admin?
+					#{link_to users_full_name, edit_admin_user_path(current_user)}, #{current_user.role.name}
+					=link_to "Admin", admin_root_url
+				-else
+					#{link_to users_full_name, edit_member_user_path(current_user)}, #{current_user.role.name}
+					=link_to "My Games", member_root_url
 				|
 				= link_to "Logout", logout_path
 			- else
 				= link_to "Register", new_user_path
 				|
 				= link_to "Login", login_path
+		%h1
+			= link_to "Games", root_url
+		- if current_user && current_user.admin?
+			= link_to "Games", admin_root_path
+			|
+			= link_to "Users", admin_users_path
+			|
+			= link_to "Roles", admin_roles_path
+
 		= yield

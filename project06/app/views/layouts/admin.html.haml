@@ -1,0 +1,23 @@
+!!!
+%html
+	%head
+		%title Gamez Admin
+		= stylesheet_link_tag    "application", :media => "all"
+		= javascript_include_tag "application"
+		= csrf_meta_tags
+	%body
+		#user_nav
+			Logged in as 
+			#{link_to users_full_name, edit_admin_user_path(current_user)}, #{current_user.role.name}
+			=link_to "Admin", admin_root_url
+			|
+			= link_to "Logout", logout_path
+		%h1
+			= link_to "Gamez", root_url
+			Admin
+		= link_to "Games", admin_root_path
+		|
+		= link_to "Users", admin_users_path
+		|
+		= link_to "Roles", admin_roles_path
+		= yield

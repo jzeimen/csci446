@@ -8,7 +8,15 @@ class ApplicationController < ActionController::Base
 
   def permission_denied
       flash[:error] = "Sorry, you are not allowed to access that page."
-    redirect_to root_url
+
+      #send them somewhere they can at least access the page
+      if current_user.admin?
+        redirect_to admin_root_url
+      elsif current_user.member?
+        redirect_to member_root_url
+      else  
+        redirect_to root_url
+      end
   end
 
   def users_full_name

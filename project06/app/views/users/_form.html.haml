@@ -1,4 +1,5 @@
-= form_for @user do |f|
+= form_for @user, :html => { :multipart => true } do |f|
+  =hidden_field_tag("user[role_id]", Role.find_by_name("Member").id)
   -if @user.errors.any?
     #error_explanation
       %h2= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
@@ -24,6 +25,8 @@
   .field
     = f.label :last
     = f.text_field :last
+  .field
+    = f.file_field :avatar
   =recaptcha_tags
   .actions
     = f.submit 'Save'

@@ -1,10 +1,11 @@
 class GamesController < ApplicationController
+  before_filter :require_user, except: [:index, :show]
   filter_resource_access
 
   # GET /games
   # GET /games.json
   def index
-    @games = Game.all(include: :user)
+    @games = Game.paginate per_page: 10, page: params[:page], include: :user, order: "created_at DESC"
 
     respond_to do |format|
       format.html # index.html.erb

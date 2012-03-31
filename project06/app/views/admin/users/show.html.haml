@@ -1,5 +1,6 @@
 %p#notice= notice
-
+%p
+=image_tag @user.avatar.url(:medium) if @user.avatar?
 %p
   %b Username:
   = @user.username

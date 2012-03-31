@@ -28,7 +28,7 @@ class Member::UsersController < Member::MemberController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to members_root_url, notice: 'Profile updated' }
+        format.html { redirect_to member_root_url, notice: 'Profile updated' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

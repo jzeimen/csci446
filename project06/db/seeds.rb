@@ -13,12 +13,11 @@ admin_user = User.create({username: "administrator", password: "password", passw
 member_user = User.create({username: "member", password: "password", password_confirmation: "password", email: "member@example.com", first: "Membey", last: "Member", role_id: member.id})
 
 
-Game.create({title: "Snake Xtreme", user_id: member_user.id, rating: "Amazing"})
-Game.create({title: "Solitaire", user_id: admin_user.id, rating: "Amazing"})
-
-
 100.times do |index|
 	user = User.create({username: "user#{index}", password: "password#{index}", password_confirmation: "password#{index}", email: "user#{index}@example.com", first: "Test", last: "user", role_id: member.id})
-	Game.create({title: "game#{index}", user_id: user.id, rating: "Meh."})
+	Game.create({title: "game#{index}", user: user, rating: "Meh."})
 
 end
+
+Game.create({title: "Snake Xtreme", user: member_user, rating: "Amazing"})
+Game.create({title: "Solitaire", user: admin_user, rating: "Amazing"})

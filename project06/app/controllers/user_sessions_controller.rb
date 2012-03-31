@@ -18,8 +18,7 @@ class UserSessionsController < ApplicationController
 
     respond_to do |format|
       if @user_session.save
-        format.html { redirect_to admin_root_url, notice: "You are now logged in as an #{current_user.role.name}" } if (current_user.role.name == "Admin")
-        format.html { redirect_to member_root_url, notice: "You are now logged in as a #{current_user.role.name}" } unless (current_user.role.name == "Admin")
+        format.html { redirect_to root_url, notice: "You are now logged in as an #{current_user.role.name}" }
         format.json { render json: @user_session, status: :created, location: @user_session }
       else
         format.html { render action: "new" }

@@ -1,4 +1,5 @@
 = form_for [:member, @game] do |f|
+  =hidden_field_tag("game[user_id]", current_user.id)
   -if @game.errors.any?
     #error_explanation
       %h2= "#{pluralize(@game.errors.count, "error")} prohibited this game from being saved:"

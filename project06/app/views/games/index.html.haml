@@ -1,6 +1,6 @@
 %p#notice= notice
-%h1 Listing games
 
+= will_paginate @games
 %table
   %tr
     %th Title
@@ -11,8 +11,7 @@
     %tr
       %td= link_to game.title, game
       %td= game.rating
-      %td= "#{game.created_at.to_s(:month_day_year)} by #{game.user.full_name}"
+      %td= "#{game.created_at.to_s(:month_day_year)} by #{(current_user && (game.user.full_name == current_user.full_name)) ?  "me" : game.user.full_name}"
 
 %br
 
-= link_to 'New Game', new_game_path

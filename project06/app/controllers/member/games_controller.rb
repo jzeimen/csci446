@@ -2,7 +2,10 @@ class Member::GamesController < Member::MemberController
   # GET /games
   # GET /games.json
   def index
-    @games = Game.all(include: :user, order: "created_at DESC")
+    @games = Game.where( user_id: current_user).paginate per_page: 10, page: params[:page], include: :user, order: "created_at DESC"
+    @game_count = Game.where(user_id: current_user.id).count
+    rated_count = Game.where("rating IS NOT NULL and user_id = ?", current_user.id).count
+    @percent_rated = 100*rated_count.to_f/@game_count
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @games }

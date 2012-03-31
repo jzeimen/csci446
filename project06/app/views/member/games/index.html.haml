@@ -1,18 +1,27 @@
 %p#notice= notice
-%h1 Listing games
-
-%table
-  %tr
-    %th Title
-    %th Rating
-    %th Created At
-
-  - @games.each do |game|
-    %tr
-      %td= link_to game.title, [:member, game]
-      %td= game.rating
-      %td= "#{game.created_at.to_s(:month_day_year)} by #{game.user.full_name}"
-
-%br
-
+%h1
+  My Gamez
 = link_to 'New Game', new_member_game_path
+
+- if @game_count == 0 
+  %h2
+    I have not created any games yet.
+- else
+  = will_paginate @games
+  %table
+    %tr
+      %th Title
+      %th Rating
+      %th Created At
+  
+    - @games.each do |game|
+      %tr
+        %td= link_to game.title, [:member, game]
+        %td= game.rating
+        %td= "#{game.created_at.to_s(:month_day_year)} by #{(game.user.full_name == current_user.full_name) ?  "me" : game.user.full_name}"
+  
+  %br
+  
+  %p
+    I have created #{pluralize(@game_count, "game")} and have rated #{number_to_percentage(@percent_rated)} of them.
+  
