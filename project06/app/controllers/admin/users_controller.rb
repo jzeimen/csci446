@@ -2,8 +2,7 @@ class Admin::UsersController < Admin::AdminController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all( order: :last)
-
+    @users = User.paginate per_page: 10, page: params[:page], order: 'last'
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @users }

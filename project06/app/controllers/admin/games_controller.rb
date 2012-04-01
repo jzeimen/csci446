@@ -3,6 +3,7 @@ class Admin::GamesController < Admin::AdminController
   # GET /games.json
   def index
     @games = Game.paginate per_page: 10, page: params[:page], include: :user, order: "created_at DESC"
+    @total_games = Game.count(:all)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @games }

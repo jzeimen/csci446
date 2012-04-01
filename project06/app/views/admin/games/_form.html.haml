@@ -24,5 +24,8 @@
     %br/
     = f.radio_button :rating, 'Horrible'
     = label :Horrible, 'Horrible'
+  .field
+    = f.label :Owner
+    = f.select("user_id",User.all.collect{|a|[a.username,a.id]})
   .actions
     = f.submit 'Save'

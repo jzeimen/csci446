@@ -16,7 +16,7 @@
   
     - @games.each do |game|
       %tr
-        %td= link_to game.title, [:member, game]
+        %td= link_to game.title, edit_member_game_path(game)
         %td= game.rating
         %td= "#{game.created_at.to_s(:month_day_year)} by #{(game.user.full_name == current_user.full_name) ?  "me" : game.user.full_name}"
   

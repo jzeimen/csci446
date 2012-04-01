@@ -1,5 +1,9 @@
 %p#notice= notice
 
+
+%p
+  #{@total_games} Total Games
+  = link_to 'New Game', new_admin_game_path
 = will_paginate @games
 %table
   %tr
@@ -14,4 +18,3 @@
       %td= "#{game.created_at.to_s(:month_day_year)} by #{(game.user.full_name == current_user.full_name) ?  "me" : game.user.full_name}"
 
 %br
-= link_to 'New Game', new_admin_game_path

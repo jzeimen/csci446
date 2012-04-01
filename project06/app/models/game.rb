@@ -1,5 +1,5 @@
 class Game < ActiveRecord::Base
-	belongs_to :user
+	belongs_to :user, :counter_cache => true
 	validates_presence_of :title, :user_id
 	validates_associated :user
 	#validate :owns_item

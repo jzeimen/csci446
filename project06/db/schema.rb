@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120331143635) do
+ActiveRecord::Schema.define(:version => 20120401001520) do
 
   create_table "games", :force => true do |t|
     t.string   "title"
@@ -23,20 +23,21 @@ ActiveRecord::Schema.define(:version => 20120331143635) do
 
   create_table "roles", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+    t.integer  "users_count", :default => 0
   end
 
   create_table "users", :force => true do |t|
-    t.string   "username",            :null => false
-    t.string   "email",               :null => false
+    t.string   "username",                           :null => false
+    t.string   "email",                              :null => false
     t.string   "crypted_password"
     t.string   "password_salt"
     t.string   "persistence_token"
     t.string   "first"
     t.string   "last"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
     t.integer  "role_id"
     t.datetime "last_login_at"
     t.datetime "current_login_at"
@@ -44,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20120331143635) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.integer  "games_count",         :default => 0
   end
 
 end

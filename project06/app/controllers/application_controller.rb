@@ -25,7 +25,6 @@ class ApplicationController < ActionController::Base
 
   def current_user_session
   	return @current_user_session ||= UserSession.find
-  	
   end
 
   def current_user

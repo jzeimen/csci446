@@ -26,5 +26,8 @@
     = f.text_field :last
   .field
     = f.file_field :avatar
+  .field
+    =f.label :role
+    = f.select("role_id",Role.all.collect{|a|[a.name,a.id]})
   .actions
     = f.submit 'Save'

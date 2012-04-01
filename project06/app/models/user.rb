@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 	acts_as_authentic
-	belongs_to :role
+	belongs_to :role, counter_cache: true
 	has_many :games
 	validates :username, presence: true, uniqueness: true
 	validates :role, presence: true
@@ -27,5 +27,7 @@ class User < ActiveRecord::Base
 	def member?
 		role_sym == :member
 	end
+
+
 
 end
