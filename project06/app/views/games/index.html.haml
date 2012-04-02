@@ -9,7 +9,7 @@
 
   - @games.each do |game|
     %tr
-      %td= link_to game.title, game
+      %td= game.title
       %td= game.rating
       %td= "#{game.created_at.to_s(:month_day_year)} by #{(current_user && (game.user.full_name == current_user.full_name)) ?  "me" : game.user.full_name}"
 

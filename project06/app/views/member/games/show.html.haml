@@ -7,6 +7,6 @@
   %b Rating:
   = @game.rating
 
-= link_to 'Edit', edit_member_game_path(@game)
+= link_to 'Edit', edit_member_game_path(@game) if @game.user_id == current_user.id
 \|
 = link_to 'Back', member_games_path

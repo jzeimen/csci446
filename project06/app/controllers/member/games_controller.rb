@@ -4,7 +4,7 @@ class Member::GamesController < Member::MemberController
   def index
     @games = Game.where( user_id: current_user).paginate per_page: 10, page: params[:page], include: :user, order: "created_at DESC"
     @game_count = current_user.games.size
-    rated_count = Game.count(:rating)
+    rated_count = Game.where("rating IS NOT NULL and user_id = ?", current_user.id).count
     @percent_rated = 100*rated_count.to_f/@game_count
     respond_to do |format|
       format.html # index.html.erb
