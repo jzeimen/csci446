@@ -4,7 +4,7 @@ class Game < ActiveRecord::Base
 	validates_associated :user
 
 	#Only can create items for self
-	before_validation(:on => :create) do
+	validate(:on => :create) do
     	user_id = UserSession.find.user.id unless UserSession.find.user.admin?
   	end
 

@@ -8,16 +8,17 @@
 
 admin = Role.create(name: "Admin")
 member = Role.create(name: "Member")
+ admin_user = User.create({username: "administrator", password: "password", password_confirmation: "password", email: "admin@example.com", first: "Addy", last: "Admin", role_id: admin.id})
+ member_user = User.create({username: "member", password: "password", password_confirmation: "password", email: "member@example.com", first: "Membey", last: "Member", role_id: member.id})
 
-admin_user = User.create({username: "administrator", password: "password", password_confirmation: "password", email: "admin@example.com", first: "Addy", last: "Admin", role_id: admin.id})
-member_user = User.create({username: "member", password: "password", password_confirmation: "password", email: "member@example.com", first: "Membey", last: "Member", role_id: member.id})
 
+ 30.times do |index|
+ 	user = User.create({username: "user#{index}", password: "password#{index}", password_confirmation: "password#{index}", email: "user#{index}@example.com", first: "Test", last: "user", role_id: member.id})
+ 	g = Game.new({title: "game#{index}", user: admin_user, rating: "Meh."})
+ 	g.save(validate: false)
+ end
 
-25.times do |index|
-	user = User.create({username: "user#{index}", password: "password#{index}", password_confirmation: "password#{index}", email: "user#{index}@example.com", first: "Test", last: "user", role_id: member.id})
-	Game.create({title: "game#{index}", user: user, rating: "Meh."})
-
-end
-
-Game.create({title: "Snake Xtreme", user: member_user, rating: "Amazing"})
-Game.create({title: "Solitaire", user: admin_user, rating: "Amazing"})
+ g=Game.new({title: "Snake Xtreme", user: member_user, rating: "Amazing"})
+ g.save(validate: false)
+ g=Game.new({title: "Solitaire", user: admin_user, rating: "Amazing"})
+ g.save(validate: false)
