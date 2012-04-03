@@ -7,10 +7,10 @@
 
   - @roles.each do |role|
     %tr
-      %td= link_to role.name, edit_role_path(role)
+      %td= link_to role.name, edit_admin_role_path(role)
       %td= role.users.size
 
 
 %br
 
-= link_to 'New Role', new_role_path
+= link_to 'New Role', new_admin_role_path
