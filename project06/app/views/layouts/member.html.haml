@@ -8,7 +8,7 @@
 	%body
 		#user_nav
 			Logged in as 
-			#{link_to users_full_name, edit_member_user_path(current_user)}, #{current_user.role.name}
+			#{link_to users_full_name, :member_me}, #{current_user.role.name}
 			=link_to "My Games", member_root_url
 			|
 			= link_to "Logout", logout_path

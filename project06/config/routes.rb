@@ -14,7 +14,7 @@ Gamez::Application.routes.draw do
   match 'login', :to => 'user_sessions#new'
   match 'logout', :to => 'user_sessions#destroy'
   match "newuser", :to => 'users#new'
-  match "/member/me" => "member/users#edit"
+  
 
 
   # The priority is based upon order of creation:
@@ -75,6 +75,7 @@ Gamez::Application.routes.draw do
     resources :games
     resources :users
     root to: 'games#index'
+    get 'me' => 'users#edit', :as => :me
   end 
 
   # You can have the root of your site routed with "root"
